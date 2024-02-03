@@ -31,6 +31,8 @@ class OnboardingAdapter : RecyclerView.Adapter<OnboardingAdapter.CarouselViewHol
                     .placeholder(R.drawable.placeholder)
                     .into(binding.ivPics)
 
+//                tvTitle.text = item.title
+//                tvSubTitle.text = item.subtitle
             }
         }
     }
