@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Shoppie</string>
+    <string name="shoppie">Shoppie</string>
+    <string name="any_shopping_just_from_home">Any shopping just from home</string>
 </resources>
