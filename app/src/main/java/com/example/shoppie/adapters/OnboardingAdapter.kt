@@ -1,7 +1,11 @@
 package com.example.shoppie.adapters
 
+import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.AlphaAnimation
+import android.view.animation.DecelerateInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shoppie.R
@@ -30,9 +34,8 @@ class OnboardingAdapter : RecyclerView.Adapter<OnboardingAdapter.CarouselViewHol
                     .load(item.image)
                     .placeholder(R.drawable.placeholder)
                     .into(binding.ivPics)
-
-//                tvTitle.text = item.title
-//                tvSubTitle.text = item.subtitle
+                tvTitle.text = item.title
+                tvSubTitle.text = item.subtitle
             }
         }
     }

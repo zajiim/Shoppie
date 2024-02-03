@@ -1,14 +1,19 @@
 package com.example.shoppie.views
 
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
+import android.view.animation.DecelerateInterpolator
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
@@ -29,7 +34,7 @@ class OnboardingFragment : Fragment() {
     private lateinit var binding: FragmentOnboardingBinding
     private val onboardingAdapter = OnboardingAdapter()
     private lateinit var autoScrollJob: Job
-    private var fadeJob: Job? = null
+//    private var fadeJob: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,7 +54,7 @@ class OnboardingFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         stopAutoScroll()
-        fadeJob?.cancel()
+//        fadeJob?.cancel()
     }
 
     private fun setupWindowInsets() {
@@ -66,6 +71,16 @@ class OnboardingFragment : Fragment() {
     private fun setupViews() = binding.apply {
         btnCreateAccount.setCornerRadius(24f)
         setUpViewPager()
+        setupNavigation()
+    }
+
+    private fun setupNavigation() = binding.apply{
+        btnCreateAccount.setOnClickListener {
+            findNavController().navigate(OnboardingFragmentDirections.actionOnboardingFragmentToCreateAccountFragment())
+        }
+
+        btnAlreadyHaveAc.setOnClickListener {  }
+
     }
 
     private fun setUpViewPager() = binding.apply {
@@ -110,7 +125,6 @@ class OnboardingFragment : Fragment() {
         vpOnboarding.getChildAt(onboardingAdapter.itemCount)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         vpOnboarding.adapter = onboardingAdapter
 
-
         vpOnboarding.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             @SuppressLint("ResourceAsColor")
             override fun onPageScrolled(
@@ -123,37 +137,39 @@ class OnboardingFragment : Fragment() {
                 pagerIndicator.positionOffset = positionOffset
                 pagerIndicator.invalidate()
 
-                animateTitleAndSubtitle(positionOffset)
+//                animateTitleAndSubtitle(positionOffset)
             }
         })
+
+
 
         startAutoScroll()
     }
 
-    private fun animateTitleAndSubtitle(positionOffset: Float) = binding.apply {
-        val fadeDuration = 2500L
-        val fadeIn = AlphaAnimation(0f, 1f).apply {
-            duration = fadeDuration
-            fillAfter = true
-        }
-
-        val fadeOut = AlphaAnimation(1f, 0f).apply {
-            duration = fadeDuration
-            fillAfter = true
-        }
-
-        tvTitle.startAnimation(fadeIn)
-        tvSubTitle.startAnimation(fadeIn)
-
-        fadeJob?.cancel()
-
-        fadeJob = CoroutineScope(Dispatchers.Main).launch {
-            delay(fadeDuration + 100L)
-            tvTitle.startAnimation(fadeOut)
-            tvSubTitle.startAnimation(fadeOut)
-        }
-
-    }
+//    private fun animateTitleAndSubtitle(positionOffset: Float) = binding.apply {
+//        val fadeDuration = 2500L
+//        val fadeIn = AlphaAnimation(0f, 1f).apply {
+//            duration = fadeDuration
+//            fillAfter = true
+//        }
+//
+//        val fadeOut = AlphaAnimation(1f, 0f).apply {
+//            duration = fadeDuration
+//            fillAfter = true
+//        }
+//
+//        tvTitle.startAnimation(fadeIn)
+//        tvSubTitle.startAnimation(fadeIn)
+//
+//        fadeJob?.cancel()
+//
+//        fadeJob = CoroutineScope(Dispatchers.Main).launch {
+//            delay(fadeDuration + 100L)
+//            tvTitle.startAnimation(fadeOut)
+//            tvSubTitle.startAnimation(fadeOut)
+//        }
+//
+//    }
 
     private fun startAutoScroll() = binding.apply{
         autoScrollJob = CoroutineScope(Dispatchers.Main).launch {

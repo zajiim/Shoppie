@@ -2,4 +2,19 @@
     <string name="app_name">Shoppie</string>
     <string name="shoppie">Shoppie</string>
     <string name="any_shopping_just_from_home">Any shopping just from home</string>
+    <string name="create_account">Create Account</string>
+    <string name="already_have_an_account">Already Have an Account</string>
+    <string name="username">Username</string>
+    <string name="create_your_username">Create your username</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_your_phone">Enter your phone</string>
+    <string name="create_your_password">Create your password</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="or_sign_in_with">or sign in with</string>
+    <string name="signup_with_google">Signup with Google</string>
+    <string name="signup_with_facebook">Signup with Facebook</string>
 </resources>
