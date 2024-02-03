@@ -1,32 +1,36 @@
-package com.example.shoppie.views
+package com.example.shoppie.utils.common
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.example.shoppie.databinding.FragmentCreateAccountBinding
+import com.example.shoppie.databinding.FragmentBottomSheetBinding
 import com.example.shoppie.utils.requireMainActivity
 import com.example.shoppie.utils.setCornerRadius
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class CreateAccountFragment: Fragment() {
-    private lateinit var binding: FragmentCreateAccountBinding
+class BottomSheetRegister: BottomSheetDialogFragment() {
+    private lateinit var binding: FragmentBottomSheetBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
+        binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return CustomBottomSheetDialog(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupWindowInsets()
         setupViews()
+        setupWindowInsets()
     }
 
     private fun setupWindowInsets() {
@@ -35,21 +39,11 @@ class CreateAccountFragment: Fragment() {
                 WindowInsetsCompat.Type.systemBars() or
                         WindowInsetsCompat.Type.displayCutout()
             )
-            binding.safeTopGuideline.setGuidelineBegin(rect.top)
             binding.safeBottomGuideline.setGuidelineEnd(rect.bottom)
         }
     }
-
     private fun setupViews() = binding.apply{
-        setupNavigation()
-        btnCreateAccount.setCornerRadius(24f)
-        llGoogleSection.setCornerRadius(24f)
-        llFacebookSection.setCornerRadius(24f)
+        btnGoToHomepage.setCornerRadius(24f)
     }
 
-    private fun setupNavigation() = binding.apply{
-        btnCreateAccount.setOnClickListener {
-            findNavController().navigate(CreateAccountFragmentDirections.actionCreateAccountFragmentToFragmentVerification())
-        }
-    }
 }

@@ -17,4 +17,12 @@
     <string name="or_sign_in_with">or sign in with</string>
     <string name="signup_with_google">Signup with Google</string>
     <string name="signup_with_facebook">Signup with Facebook</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="we_have_sent_you_an_sms_with_an_otp_code_to">We have sent you an SMS with an OTP code to </string>
+    <string name="submit">Submit</string>
+    <string name="register_success">Register Success</string>
+    <string name="congratulations_your_account_is_created_please_login_to_continue_shopping">Congratulations!. Your account is created. Please login to continue shopping</string>
+    <string name="go_to_homepage">Go to Homepage</string>
+    <string name="didn_t_receive_the_code">Didn\'t receive the code?</string>
+    <string name="resend_code">Resend code</string>
 </resources>

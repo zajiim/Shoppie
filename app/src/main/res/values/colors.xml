@@ -16,4 +16,6 @@
     <color name="search_bar_text_color">#C4C5C4</color>
     <color name="sub_section_title_color">#0C1A30</color>
     <color name="sub_section_see_all_color">#3669C9</color>
+    <color name="grey_button_25_alpha">#40C8C8C8</color>
+
 </resources>

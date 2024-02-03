@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="OtpInput">
+        <attr name="android:fontFamily" />
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="digitCount" format="integer" />
+        <attr name="defaultBlockStrokeColor" format="color" />
+        <attr name="defaultBlockStrokeWidth" format="dimension" />
+        <attr name="defaultBlockFillColor" format="color" />
+        <attr name="selectedBlockStrokeColor" format="color" />
+        <attr name="selectedBlockStrokeWidth" format="dimension" />
+        <attr name="selectedBlockFillColor" format="color" />
+        <attr name="errorBlockStrokeColor" format="color" />
+        <attr name="errorBlockStrokeWidth" format="dimension" />
+        <attr name="errorBlockFillColor" format="color" />
+        <attr name="blockCornerRadius" format="dimension" />
+        <attr name="blockSpacing" format="dimension" />
+    </declare-styleable>
+</resources>

@@ -68,7 +68,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
     implementation("com.google.firebase:firebase-messaging-ktx:23.4.0")
     implementation("com.google.android.gms:play-services-auth:20.7.0")
-    implementation("com.google.android.gms:play-services-auth-api-phone:18.0.1")
+    implementation("com.google.android.gms:play-services-auth-api-phone:18.0.2")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
@@ -76,6 +76,9 @@ dependencies {
     //Dagger-hilt
     implementation("com.google.dagger:hilt-android:2.49")
     kapt("com.google.dagger:hilt-compiler:2.49")
+
+    //lottie
+    implementation("com.airbnb.android:lottie:6.3.0")
 
 
 
