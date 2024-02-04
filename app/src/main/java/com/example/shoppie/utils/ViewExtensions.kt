@@ -1,16 +1,12 @@
 package com.example.shoppie.utils
 
 import android.app.AlertDialog
-import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 
-private var dialog: AlertDialog? = null
+//private var dialog: AlertDialog? = null
 fun View.setCornerRadius(radius: Float = Float.MAX_VALUE) {
     val outline = outlineProvider as? RoundedRectOutlineProvider ?: RoundedRectOutlineProvider(radius)
     outline.radiusPx = radius
@@ -30,3 +26,14 @@ fun String.showToast(fragment: Fragment) =
 //        dialog?.show()
 //    }
 //}
+
+fun View.show() {
+    View.VISIBLE
+}
+fun View.hide() {
+    View.INVISIBLE
+}
+
+fun View.gone() {
+    View.GONE
+}

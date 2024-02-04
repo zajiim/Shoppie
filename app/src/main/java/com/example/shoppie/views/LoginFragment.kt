@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.shoppie.databinding.FragmentCreateAccountBinding
 import com.example.shoppie.databinding.FragmentLoginBinding
 import com.example.shoppie.utils.requireMainActivity
 import com.example.shoppie.utils.setCornerRadius

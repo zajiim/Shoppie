@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/safeTopGuideline"
@@ -98,6 +98,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:inputType="text"
             android:background="@drawable/edittext_layout_bg"
             android:hint="@string/create_your_username"
             android:fontFamily="@font/rubik_medium"
@@ -157,6 +160,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
                 android:background="@drawable/edittext_layout_bg"
                 android:hint="@string/enter_your_email"
                 android:fontFamily="@font/rubik_medium"
@@ -215,6 +221,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:inputType="number|phone"
                 android:background="@drawable/edittext_layout_bg"
                 android:hint="@string/enter_your_phone"
                 android:fontFamily="@font/rubik_medium"
@@ -223,6 +232,7 @@
                 android:textSize="12sp"
                 />
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -275,6 +285,9 @@
                 android:layout_weight="1"
                 android:background="@drawable/edittext_layout_bg"
                 android:hint="@string/create_your_password"
+                android:maxLines="1"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
                 android:fontFamily="@font/rubik_medium"
                 android:paddingHorizontal="12dp"
                 android:textColor="@color/black45"
@@ -292,6 +305,7 @@
                 />
 
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -345,6 +359,9 @@
                 android:background="@drawable/edittext_layout_bg"
                 android:hint="@string/confirm_your_password"
                 android:fontFamily="@font/rubik_medium"
+                android:maxLines="1"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
                 android:paddingHorizontal="12dp"
                 android:textColor="@color/black45"
                 android:textSize="12sp"
@@ -458,5 +475,18 @@
 
         </LinearLayout>
     </ScrollView>
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/modalProgressContainer"
+        android:name="com.example.shoppie.utils.common.ModalProgressLoadingFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_modal_progress_loading"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

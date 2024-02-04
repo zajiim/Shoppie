@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.ecomapp.models.BestSellersModel
@@ -19,6 +20,7 @@ import com.example.shoppie.adapters.FeaturedProductsAdapter
 import com.example.shoppie.adapters.ItemsCarousel
 import com.example.shoppie.R
 import com.example.shoppie.databinding.FragmentHomeBinding
+import com.example.shoppie.utils.requireMainFragment
 import kotlin.math.abs
 
 class HomeFragment: Fragment() {
@@ -43,6 +45,8 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
     }
+
+
 
 
     private fun setupViews() {

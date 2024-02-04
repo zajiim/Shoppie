@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     kotlin("kapt")
-    id("com.google.dagger.hilt.android")
+    id("dagger.hilt.android.plugin")
     id("com.google.gms.google-services")
     id("androidx.navigation.safeargs")
 }
@@ -79,6 +79,13 @@ dependencies {
 
     //lottie
     implementation("com.airbnb.android:lottie:6.3.0")
+
+    //timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
+
+    //firebase
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+
 
 
 

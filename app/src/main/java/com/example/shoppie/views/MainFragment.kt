@@ -13,13 +13,13 @@ import com.example.shoppie.R
 import com.example.shoppie.databinding.FragmentMainBinding
 import com.example.shoppie.utils.requireMainActivity
 
-class MainFragment: Fragment() {
+class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
@@ -30,23 +30,12 @@ class MainFragment: Fragment() {
         setupViews()
         setupWindowInsets()
         setupBottomNavigation()
-
-        if (savedInstanceState == null) {
-            clearBackStack()
-        }
-    }
-/**
- * Function to clear all other navigation from backstack,
- * here main fragment becomes the start destination..*/
-    private fun clearBackStack() {
-        val navController = findNavController()
-        val navGraph = navController.navInflater.inflate(R.navigation.bottom_nav_graph)
-        navController.graph = navGraph
     }
 
 
     private fun setupBottomNavigation() {
-        val navHostFragment = childFragmentManager.findFragmentById(R.id.navigationContainer) as NavHostFragment
+        val navHostFragment =
+            childFragmentManager.findFragmentById(R.id.navigationContainer) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavBar.setupWithNavController(navController)
     }
@@ -64,5 +53,4 @@ class MainFragment: Fragment() {
     private fun setupViews() {
         binding.bottomNavBar.itemActiveIndicatorColor = null
     }
-
 }
