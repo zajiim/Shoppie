@@ -79,7 +79,9 @@ class OnboardingFragment : Fragment() {
             findNavController().navigate(OnboardingFragmentDirections.actionOnboardingFragmentToCreateAccountFragment())
         }
 
-        btnAlreadyHaveAc.setOnClickListener {  }
+        btnAlreadyHaveAc.setOnClickListener {
+            findNavController().navigate(OnboardingFragmentDirections.actionOnboardingFragmentToLoginFragment())
+        }
 
     }
 

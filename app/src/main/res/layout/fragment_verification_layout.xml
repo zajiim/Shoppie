@@ -139,7 +139,7 @@
                 app:selectedBlockStrokeColor="@color/primary_violet"
                 app:selectedBlockStrokeWidth="3dp"
                 android:textAlignment="center"
-                android:fontFamily="@font/rubik_regular"
+                android:fontFamily="@font/rubik_medium"
                 app:errorBlockStrokeColor="@color/red"
                 app:digitCount="6"
                 app:layout_constraintStart_toStartOf="parent"

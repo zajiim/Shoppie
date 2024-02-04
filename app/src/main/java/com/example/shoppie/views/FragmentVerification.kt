@@ -1,11 +1,9 @@
 package com.example.shoppie.views
 
-import android.app.ProgressDialog.show
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -59,6 +57,7 @@ class FragmentVerification: Fragment() {
         btnSubmit.setOnClickListener {
             registerSuccessBottomSheet.show(childFragmentManager, "Register success")
         }
+
     }
 
     private fun setSubmitButtonColor() = binding.apply {

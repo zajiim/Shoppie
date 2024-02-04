@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_onboardingFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -38,5 +41,14 @@
         android:id="@+id/fragmentVerification"
         android:name="com.example.shoppie.views.FragmentVerification"
         android:label="FragmentVerification"
-        tools:layout="@layout/fragment_verification_layout"/>
+        tools:layout="@layout/fragment_verification_layout">
+        <action
+            android:id="@+id/action_fragmentVerification_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.shoppie.views.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login"/>
 </navigation>
