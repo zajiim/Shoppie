@@ -32,4 +32,18 @@
     <string name="create_new_password">Create new password</string>
     <string name="change_password">Change Password</string>
     <string name="enter_your_password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="home">Home</string>
+    <string name="my_orders">My Orders</string>
+    <string name="favorites">Favorites</string>
+    <string name="my_profile">My Profile</string>
+    <string name="search_product_name">Search product name</string>
+    <string name="categories">Categories</string>
+    <string name="see_all">See All</string>
+    <string name="featured_products">Featured Products</string>
+    <string name="best_sellers">Best Sellers</string>
+    <string name="new_arrivals">New Arrivals</string>
+    <string name="top_rated_products">Top Rated Products</string>
+    <string name="special_offers">Special Offers</string>
+    <string name="shop_now">Shop Now</string>
 </resources>

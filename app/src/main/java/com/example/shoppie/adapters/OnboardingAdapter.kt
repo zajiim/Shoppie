@@ -1,15 +1,11 @@
 package com.example.shoppie.adapters
 
-import android.animation.ObjectAnimator
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.AlphaAnimation
-import android.view.animation.DecelerateInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.shoppie.R
-import com.example.shoppie.data.OnboardingCarouselModel
+import com.example.shoppie.data.models.OnboardingCarouselModel
 import com.example.shoppie.databinding.CellOnboardingLayoutBinding
 
 class OnboardingAdapter : RecyclerView.Adapter<OnboardingAdapter.CarouselViewHolder>() {

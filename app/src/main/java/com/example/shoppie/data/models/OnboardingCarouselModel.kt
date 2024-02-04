@@ -1,4 +1,4 @@
-package com.example.shoppie.data
+package com.example.shoppie.data.models
 
 data class OnboardingCarouselModel(
     val id: String?=null,

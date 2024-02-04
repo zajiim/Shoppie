@@ -1,25 +1,20 @@
 package com.example.shoppie.views
 
-import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.AlphaAnimation
-import android.view.animation.DecelerateInterpolator
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.shoppie.R
 import com.example.shoppie.adapters.OnboardingAdapter
-import com.example.shoppie.data.OnboardingCarouselModel
+import com.example.shoppie.data.models.OnboardingCarouselModel
 import com.example.shoppie.databinding.FragmentOnboardingBinding
 import com.example.shoppie.utils.requireMainActivity
 import com.example.shoppie.utils.setCornerRadius

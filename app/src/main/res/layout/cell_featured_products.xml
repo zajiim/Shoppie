@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="156dp"
+    android:layout_height="252dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    android:layout_marginHorizontal="14dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/head_phone"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ivImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvItemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="TMA-2 HD Wireless"
+                android:textColor="@color/sub_section_title_color"
+                android:fontFamily="@font/rubik_medium"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Rs: 150000"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/primary_violet"
+                android:fontFamily="@font/rubik_medium"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvItemName"
+                />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_star"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@id/tvItemPrice"
+                app:layout_constraintTop_toBottomOf="@id/tvItemPrice"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStarCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="4.6"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/rubik_regular"
+                app:layout_constraintTop_toTopOf="@id/ivStar"
+                app:layout_constraintBottom_toBottomOf="@id/ivStar"
+                app:layout_constraintStart_toEndOf="@id/ivStar"
+                />
+
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvReviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="86 Reviews"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:fontFamily="@font/rubik_regular"
+                app:layout_constraintTop_toTopOf="@id/ivStar"
+                app:layout_constraintBottom_toBottomOf="@id/ivStar"
+                app:layout_constraintStart_toEndOf="@id/tvStarCount"
+                app:layout_constraintEnd_toStartOf="@id/ivMoreDots"
+                />
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMoreDots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_more_dots"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivStar"
+                app:layout_constraintBottom_toBottomOf="@id/ivStar"
+                />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

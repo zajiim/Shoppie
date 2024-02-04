@@ -6,23 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.example.shoppie.databinding.FragmentCreateAccountBinding
-import com.example.shoppie.databinding.FragmentLoginBinding
+import androidx.navigation.ui.setupWithNavController
+import com.example.shoppie.R
+import com.example.shoppie.databinding.FragmentMainBinding
 import com.example.shoppie.utils.requireMainActivity
-import com.example.shoppie.utils.setCornerRadius
-import com.example.shoppie.views.bottomsheets.ForgotPasswordBottomSheet
 
-class LoginFragment: Fragment() {
-    private lateinit var binding: FragmentLoginBinding
-    private val forgotPasswordBottomSheet = ForgotPasswordBottomSheet()
+class MainFragment: Fragment() {
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -30,17 +29,26 @@ class LoginFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         setupWindowInsets()
-        setupNavigation()
+        setupBottomNavigation()
+
+        if (savedInstanceState == null) {
+            clearBackStack()
+        }
+    }
+/**
+ * Function to clear all other navigation from backstack,
+ * here main fragment becomes the start destination..*/
+    private fun clearBackStack() {
+        val navController = findNavController()
+        val navGraph = navController.navInflater.inflate(R.navigation.bottom_nav_graph)
+        navController.graph = navGraph
     }
 
-    private fun setupNavigation() = binding.apply{
-        tvForgotPass.setOnClickListener {
-            forgotPasswordBottomSheet.show(childFragmentManager, "Forgot password")
-        }
 
-        btnLogin.setOnClickListener {
-            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToMainFragment())
-        }
+    private fun setupBottomNavigation() {
+        val navHostFragment = childFragmentManager.findFragmentById(R.id.navigationContainer) as NavHostFragment
+        val navController = navHostFragment.navController
+        binding.bottomNavBar.setupWithNavController(navController)
     }
 
     private fun setupWindowInsets() {
@@ -53,10 +61,8 @@ class LoginFragment: Fragment() {
             binding.safeBottomGuideline.setGuidelineEnd(rect.bottom)
         }
     }
-
-    private fun setupViews() = binding.apply{
-        btnLogin.setCornerRadius(24f)
-        llGoogleSection.setCornerRadius(24f)
-        llFacebookSection.setCornerRadius(24f)
+    private fun setupViews() {
+        binding.bottomNavBar.itemActiveIndicatorColor = null
     }
+
 }
