@@ -28,4 +28,8 @@
     <string name="login_account">Login Account</string>
     <string name="please_login_with_your_registered_account">Please login with your registered account</string>
     <string name="forgot_password">Forgot password?</string>
+    <string name="send_code">Send code</string>
+    <string name="create_new_password">Create new password</string>
+    <string name="change_password">Change Password</string>
+    <string name="enter_your_password">Enter your password</string>
 </resources>

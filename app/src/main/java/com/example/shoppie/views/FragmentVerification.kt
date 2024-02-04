@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.shoppie.R
 import com.example.shoppie.databinding.FragmentVerificationLayoutBinding
-import com.example.shoppie.utils.common.BottomSheetRegister
+import com.example.shoppie.views.bottomsheets.BottomSheetRegister
 import com.example.shoppie.utils.requireMainActivity
 import com.example.shoppie.utils.setCornerRadius
 

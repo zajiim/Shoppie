@@ -1,57 +1,58 @@
-package com.example.shoppie.views
+package com.example.shoppie.views.bottomsheets
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
-import com.example.shoppie.databinding.FragmentCreateAccountBinding
-import com.example.shoppie.databinding.FragmentLoginBinding
+import androidx.navigation.fragment.findNavController
+import com.example.shoppie.databinding.FragmentBottomSheetBinding
+import com.example.shoppie.utils.common.CustomBottomSheetDialog
 import com.example.shoppie.utils.requireMainActivity
 import com.example.shoppie.utils.setCornerRadius
-import com.example.shoppie.views.bottomsheets.ForgotPasswordBottomSheet
+import com.example.shoppie.views.FragmentVerificationDirections
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class LoginFragment: Fragment() {
-    private lateinit var binding: FragmentLoginBinding
-    private val forgotPasswordBottomSheet = ForgotPasswordBottomSheet()
+class BottomSheetRegister: BottomSheetDialogFragment() {
+    private lateinit var binding: FragmentBottomSheetBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return CustomBottomSheetDialog(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         setupWindowInsets()
-        setupNavigation()
     }
-
-    private fun setupNavigation() = binding.apply{
-        tvForgotPass.setOnClickListener {
-            forgotPasswordBottomSheet.show(childFragmentManager, "Forgot password")
-        }
-    }
-
     private fun setupWindowInsets() {
         requireMainActivity().windowsInsetsLiveData.observe(viewLifecycleOwner) { insets ->
             val rect = insets.getInsets(
                 WindowInsetsCompat.Type.systemBars() or
                         WindowInsetsCompat.Type.displayCutout()
             )
-            binding.safeTopGuideline.setGuidelineBegin(rect.top)
             binding.safeBottomGuideline.setGuidelineEnd(rect.bottom)
         }
     }
-
     private fun setupViews() = binding.apply{
-        btnCreateAccount.setCornerRadius(24f)
-        llGoogleSection.setCornerRadius(24f)
-        llFacebookSection.setCornerRadius(24f)
+        btnGoToHomepage.setCornerRadius(24f)
+        btnGoToHomepage.setOnClickListener {
+            navigateToLoginFragment()
+        }
     }
+    private fun navigateToLoginFragment() {
+        dismiss()
+        findNavController().navigate(FragmentVerificationDirections.actionFragmentVerificationToLoginFragment())
+    }
+
 }
