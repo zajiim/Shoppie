@@ -1,9 +1,11 @@
 package com.example.shoppie.utils
 
 import android.app.AlertDialog
+import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import java.util.regex.Pattern
 
 
 //private var dialog: AlertDialog? = null
@@ -37,3 +39,15 @@ fun View.hide() {
 fun View.gone() {
     View.GONE
 }
+
+fun View.viewVisibility(visible: Boolean = true) {
+    visibility = if (visible) View.VISIBLE else View.GONE
+}
+
+fun String.isValidEmail() = !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+fun isValidPasswordFormat(password: String): Boolean {
+    val passwordREGEX = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+    return passwordREGEX.matcher(password).matches()
+}
+

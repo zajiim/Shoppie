@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -110,6 +111,20 @@
             />
     </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUsernameErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Enter your username"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            />
+
+
     </LinearLayout>
 
 
@@ -171,6 +186,18 @@
                 android:textSize="12sp"
                 />
         </LinearLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEmailErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Enter your email"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            />
 
     </LinearLayout>
 
@@ -233,6 +260,18 @@
                 />
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPhonenumberErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Enter your phone number"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            android:textSize="10sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            />
 
     </LinearLayout>
 
@@ -306,6 +345,18 @@
 
         </LinearLayout>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPasswordErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Enter your password"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            />
 
     </LinearLayout>
 
@@ -378,6 +429,19 @@
                 />
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvConfirmPasswordErr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Confirm your password"
+            android:fontFamily="@font/rubik_medium"
+            android:textColor="@color/red"
+            android:textSize="10sp"
+            android:visibility="gone"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
+            />
 
     </LinearLayout>
 

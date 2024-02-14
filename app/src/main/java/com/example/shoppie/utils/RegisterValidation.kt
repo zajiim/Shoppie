@@ -7,9 +7,9 @@ sealed class RegisterValidation {
 }
 
 data class RegisterFieldState(
-    val username: RegisterValidation,
-    val email: RegisterValidation,
-    val phoneNumber: RegisterValidation,
-    val password: RegisterValidation,
-    val confirmPassword: RegisterValidation,
+    val username: RegisterValidation?=null,
+    val email: RegisterValidation?=null,
+    val phoneNumber: RegisterValidation?=null,
+    val password: RegisterValidation?=null,
+    val confirmPassword: RegisterValidation?=null,
 )

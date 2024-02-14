@@ -46,4 +46,10 @@
     <string name="top_rated_products">Top Rated Products</string>
     <string name="special_offers">Special Offers</string>
     <string name="shop_now">Shop Now</string>
+    <string name="enter_username">Enter username</string>
+    <string name="enter_email">Enter email</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_your_username">Enter your username</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_your_mobile">Enter your mobile</string>
 </resources>

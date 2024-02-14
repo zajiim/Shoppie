@@ -75,6 +75,7 @@ dependencies {
 
     //Dagger-hilt
     implementation("com.google.dagger:hilt-android:2.49")
+    implementation("com.google.firebase:firebase-firestore:24.10.1")
     kapt("com.google.dagger:hilt-compiler:2.49")
 
     //lottie
