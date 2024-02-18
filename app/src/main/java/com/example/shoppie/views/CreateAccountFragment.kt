@@ -127,7 +127,9 @@ class CreateAccountFragment : Fragment() {
                     modalProgressFragment.hideModalProgress()
                     findNavController().navigate(
                         CreateAccountFragmentDirections.actionCreateAccountFragmentToFragmentVerification(
-                            verificationId.toString()
+                            verificationId.toString(),
+                            etUsername.text.toString(),
+                            etEmailOrPhone.text.toString()
                         )
                     )
                 }

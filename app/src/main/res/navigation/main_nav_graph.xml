@@ -49,6 +49,12 @@
         <argument
             android:name="verificationId"
             app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
 
     </fragment>
     <fragment

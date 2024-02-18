@@ -15,6 +15,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.shoppie.R
+import com.example.shoppie.data.models.User
 import com.example.shoppie.databinding.FragmentVerificationLayoutBinding
 import com.example.shoppie.utils.common.ModalProgressLoadingFragment
 import com.example.shoppie.utils.requireMainActivity
@@ -69,7 +70,8 @@ class FragmentVerification : Fragment() {
                 val otp = otpInputLayout.text
                 modalProgressFragment.showModalProgress()
                 otpInputLayout.text.showToast(this@FragmentVerification)
-                viewModel.signInWithOtp(args.verificationId, otp)
+//                viewModel.signInWithOtp(args.verificationId, otp)
+                viewModel.signInWithOtp(args.verificationId, otp, getUserInfo())
             }
         }
 
@@ -87,6 +89,12 @@ class FragmentVerification : Fragment() {
                 }
             }
         }
+    }
+
+    private fun getUserInfo(): User {
+        val phoneNumber = args.phoneNumber
+        val userName = args.userName
+        return User(userName = userName, phoneNumber = phoneNumber)
     }
 
     private fun setupNavigation() = binding.apply {

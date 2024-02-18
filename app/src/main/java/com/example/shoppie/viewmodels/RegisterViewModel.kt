@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.shoppie.data.models.User
+import com.example.shoppie.utils.Constants
 import com.example.shoppie.utils.Resource
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -26,8 +27,8 @@ class RegisterViewModel @Inject constructor(
     private val db: FirebaseFirestore
 ) : ViewModel() {
 
-    private val _register = MutableStateFlow<Resource<FirebaseUser>>(Resource.Unspecified())
-    val register: Flow<Resource<FirebaseUser>> = _register
+    private val _register = MutableStateFlow<Resource<User>>(Resource.Unspecified())
+    val register: Flow<Resource<User>> = _register
 
 //    private val _validation = Channel<RegisterFieldState>()
 //    val validation = _validation.receiveAsFlow()
@@ -43,16 +44,32 @@ class RegisterViewModel @Inject constructor(
             viewModelScope.launch {
                 _register.emit(Resource.Loading())
             }
-            firebaseAuth.createUserWithEmailAndPassword(user.email, password)
+        user.email?.let {
+            firebaseAuth.createUserWithEmailAndPassword(it, password)
                 .addOnSuccessListener {
                     it.user?.let { userVal ->
-                        _register.value = Resource.Success(userVal)
+                        saveUserInfo(userVal.uid, user)
+    //                        _register.value = Resource.Success(userVal)
                     }
                 }
                 .addOnFailureListener {
                     _register.value = Resource.Error(it.message.toString())
                 }
         }
+        }
+
+    private fun saveUserInfo(userUid: String, user: User) {
+        db.collection(Constants.USER_COLLECTION).document(userUid)
+            .set(user)
+            .addOnSuccessListener {
+                _register.value = Resource.Success(user)
+            }
+            .addOnFailureListener {
+                _register.value = Resource.Error(it.message.toString())
+            }
+    }
+
+
     fun sendOtp(userNumber: String, activity: Activity) {
         val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -80,14 +97,46 @@ class RegisterViewModel @Inject constructor(
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
-    fun signInWithOtp(verificationId: String, otp: String) {
+
+//    fun signInWithOtpAndSaveUserInfo(verificationId: String, otp: String, user: User) {
+//        val credential = PhoneAuthProvider.getCredential(verificationId, otp)
+//        firebaseAuth.signInWithCredential(credential)
+//            .addOnCompleteListener { task ->
+//                if (task.isSuccessful) {
+//                    val firebaseUser = task.result?.user
+//                    firebaseUser?.let {
+//                        saveUserInfoAfterOTPVerification(it.uid, user)
+//                    }
+//                } else {
+//                    _otpVerified.value = false
+//                }
+//            }
+//    }
+//
+//    private fun saveUserInfoAfterOTPVerification(uid: String, user: User) {
+//        db.collection(Constants.USER_COLLECTION).document(uid)
+//            .set(user)
+//            .addOnSuccessListener {
+//                _register.value = Resource.Success(user)
+//            }
+//            .addOnFailureListener {
+//                _register.value = Resource.Error(it.message.toString())
+//            }
+//    }
+
+
+
+    fun signInWithOtp(verificationId: String, otp: String, user: User) {
         val credential = PhoneAuthProvider.getCredential(verificationId, otp)
-        signInWithPhoneAuthCredential(credential)
+        signInWithPhoneAuthCredential(credential, user)
     }
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, user: User) {
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 _otpVerified.value = task.isSuccessful
+                saveUserInfo(task.result.user!!.uid, user)
             }
     }
+
+
 }
