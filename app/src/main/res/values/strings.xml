@@ -6,8 +6,8 @@
     <string name="already_have_an_account">Already Have an Account</string>
     <string name="username">Username</string>
     <string name="create_your_username">Create your username</string>
-    <string name="email">Email</string>
-    <string name="enter_your_email">Enter your email</string>
+    <string name="email">Email or Phone</string>
+    <string name="enter_your_email">Enter your email/phone</string>
     <string name="phone_number">Phone Number</string>
     <string name="enter_your_phone">Enter your phone</string>
     <string name="create_your_password">Create your password</string>
@@ -51,5 +51,6 @@
     <string name="enter_phone_number">Enter phone number</string>
     <string name="enter_your_username">Enter your username</string>
     <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_valid_phone">Enter valid phone</string>
     <string name="enter_your_mobile">Enter your mobile</string>
 </resources>

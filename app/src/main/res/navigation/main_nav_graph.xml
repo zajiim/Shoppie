@@ -36,6 +36,7 @@
         <action
             android:id="@+id/action_createAccountFragment_to_fragmentVerification"
             app:destination="@id/fragmentVerification" />
+
     </fragment>
     <fragment
         android:id="@+id/fragmentVerification"
@@ -45,6 +46,10 @@
         <action
             android:id="@+id/action_fragmentVerification_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="verificationId"
+            app:argType="string" />
+
     </fragment>
     <fragment
         android:id="@+id/loginFragment"

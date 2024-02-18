@@ -139,7 +139,7 @@
         >
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvEmail"
+            android:id="@+id/tvEmailOrPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
@@ -151,7 +151,7 @@
             />
 
         <LinearLayout
-            android:id="@+id/llEmailEdittext"
+            android:id="@+id/llEmailOrPhoneEdittext"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="10dp"
@@ -171,7 +171,7 @@
                 />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etEmail"
+                android:id="@+id/etEmailOrPhone"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -206,6 +206,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:visibility="gone"
         android:layout_marginTop="14dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/llEmailSection"

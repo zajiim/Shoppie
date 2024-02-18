@@ -4,14 +4,7 @@ import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.shoppie.data.models.User
-import com.example.shoppie.utils.RegisterFieldState
-import com.example.shoppie.utils.RegisterValidation
 import com.example.shoppie.utils.Resource
-import com.example.shoppie.utils.validateConfirmPassword
-import com.example.shoppie.utils.validateEmail
-import com.example.shoppie.utils.validatePassword
-import com.example.shoppie.utils.validatePhoneNumber
-import com.example.shoppie.utils.validateUserName
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -20,11 +13,9 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -38,15 +29,17 @@ class RegisterViewModel @Inject constructor(
     private val _register = MutableStateFlow<Resource<FirebaseUser>>(Resource.Unspecified())
     val register: Flow<Resource<FirebaseUser>> = _register
 
-    private val _validation = Channel<RegisterFieldState>()
-    val validation = _validation.receiveAsFlow()
-    private val _verificationId = MutableStateFlow<String?>(null)
+//    private val _validation = Channel<RegisterFieldState>()
+//    val validation = _validation.receiveAsFlow()
+    private val  _verificationId = MutableStateFlow<String?>(null)
+    val verificationId: StateFlow<String?> = _verificationId
     private val _otpSent = MutableStateFlow(false)
     val otpSent: StateFlow<Boolean> = _otpSent
 
+    private val _otpVerified = MutableStateFlow(false)
+    val otpVerified: StateFlow<Boolean> = _otpVerified
+
     fun createAccountWithEmailAndPassword(user: User, password: String) {
-//        checkValidation(user, password)
-//        if (checkValidation(user, password)) {
             viewModelScope.launch {
                 _register.emit(Resource.Loading())
             }
@@ -60,44 +53,13 @@ class RegisterViewModel @Inject constructor(
                     _register.value = Resource.Error(it.message.toString())
                 }
         }
-//    else {
-//            val registerFieldState = RegisterFieldState(
-//                username = validateUserName(user.userName),
-//                email = validateEmail(user.email),
-//                phoneNumber = validatePhoneNumber(user.phoneNumber),
-//                password = validatePassword(password),
-////                confirmPassword = validateConfirmPasswordassword(user.password, user.confirmPassword)
-//            )
-//            viewModelScope.launch {
-//                _validation.send(registerFieldState)
-//            }
-//        }
-//    }
-
-//    private fun checkValidation(user: User, password: String): Boolean {
-//        val usernameValidation = validateUserName(user.userName)
-//        val emailValidation = validateEmail(user.email)
-//        val phoneNumberValidation = validatePhoneNumber(user.phoneNumber)
-//        val passwordValidation = validatePassword(password)
-////        val confirmPasswordValidation = validateConfirmPassword(user.password, user.confirmPassword)
-//        return (usernameValidation is RegisterValidation.Success &&
-//                emailValidation is RegisterValidation.Success && phoneNumberValidation is RegisterValidation.Success
-//                && passwordValidation is RegisterValidation.Success
-//                //                && confirmPasswordValidation is RegisterValidation.Success
-//                )
-//    }
-
-
     fun sendOtp(userNumber: String, activity: Activity) {
         val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-
-            }
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {}
 
             override fun onVerificationFailed(e: FirebaseException) {
-
-
+                _otpSent.value = false
             }
 
             override fun onCodeSent(
@@ -118,4 +80,14 @@ class RegisterViewModel @Inject constructor(
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
 
+    fun signInWithOtp(verificationId: String, otp: String) {
+        val credential = PhoneAuthProvider.getCredential(verificationId, otp)
+        signInWithPhoneAuthCredential(credential)
+    }
+    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+        firebaseAuth.signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                _otpVerified.value = task.isSuccessful
+            }
+    }
 }
