@@ -112,6 +112,7 @@ class CreateAccountFragment : Fragment() {
 
                     is Resource.Success -> {
                         modalProgressFragment.hideModalProgress()
+                        findNavController().navigate(CreateAccountFragmentDirections.actionCreateAccountFragmentToLoginFragment())
                         Timber.d(resource.data.toString())
                     }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/safeTopGuideline"
@@ -114,6 +114,18 @@
                     android:textSize="12sp"
                     />
             </LinearLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEmailErr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Enter your username"
+                android:fontFamily="@font/rubik_medium"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:visibility="gone"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                />
 
         </LinearLayout>
 
@@ -184,6 +196,19 @@
                     />
 
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPasswordErr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Enter your password"
+                android:fontFamily="@font/rubik_medium"
+                android:textColor="@color/red"
+                android:textSize="10sp"
+                android:visibility="gone"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="4dp"
+                />
 
         </LinearLayout>
 
@@ -299,6 +324,19 @@
     </LinearLayout>
 
 </ScrollView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/modalProgressContainer"
+        android:name="com.example.shoppie.utils.common.ModalProgressLoadingFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_modal_progress_loading"
+        tools:visibility="gone" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
