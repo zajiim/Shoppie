@@ -82,5 +82,17 @@
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
 
+        <action
+            android:id="@+id/action_mainFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.shoppie.views.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="productDetail"
+            app:argType="com.example.shoppie.data.models.FeaturedProductModel" />
     </fragment>
 </navigation>

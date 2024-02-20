@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.ecomapp.models.BestSellersModel
+import com.example.shoppie.data.models.BestSellersModel
 import com.example.shoppie.R
 import com.example.shoppie.databinding.CellBestSellersLayoutBinding
 

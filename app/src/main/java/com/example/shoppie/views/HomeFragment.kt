@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import com.example.ecomapp.models.BestSellersModel
+import com.example.shoppie.data.models.BestSellersModel
 import com.example.ecomapp.models.CarouselModel
 import com.example.ecomapp.models.CarouselModel2
 import com.example.ecomapp.models.CategoriesModel
-import com.example.ecomapp.models.FeaturedProductModel
+import com.example.shoppie.data.models.FeaturedProductModel
 import com.example.shoppie.adapters.BestSellersAdapter
 import com.example.shoppie.adapters.CarouselAdapter
 import com.example.shoppie.adapters.CategoriesAdapter
@@ -118,6 +118,10 @@ class HomeFragment: Fragment() {
 
         featuredProductsAdapter.list = specialOffersList
         rvSpecialOffers.adapter = featuredProductsAdapter
+        featuredProductsAdapter.onClick = { clickedItem ->
+            requireMainFragment().findNavController().navigate(MainFragmentDirections.actionMainFragmentToProductDetailsFragment(clickedItem))
+
+        }
     }
     private fun setTopRatedProducts() = binding.apply{
         val topRatedProductsList = mutableListOf<FeaturedProductModel>().apply {

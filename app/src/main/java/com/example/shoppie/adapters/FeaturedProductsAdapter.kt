@@ -5,12 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
-import com.example.ecomapp.models.FeaturedProductModel
+import com.example.shoppie.data.models.FeaturedProductModel
 import com.example.shoppie.R
 import com.example.shoppie.databinding.CellFeaturedProductsBinding
 
 class FeaturedProductsAdapter: RecyclerView.Adapter<FeaturedProductsAdapter.FeaturedProductsViewHolder>() {
     var list: MutableList<FeaturedProductModel> = mutableListOf()
+    lateinit var onClick: (FeaturedProductModel) -> Unit
     inner class FeaturedProductsViewHolder(private val binding: CellFeaturedProductsBinding): ViewHolder(binding.root) {
 
         fun bind(item: FeaturedProductModel) {
@@ -23,6 +24,10 @@ class FeaturedProductsAdapter: RecyclerView.Adapter<FeaturedProductsAdapter.Feat
                     .load(item.image)
                     .placeholder(R.drawable.placeholder)
                     .into(binding.ivImage)
+
+                root.setOnClickListener {
+                    onClick(item)
+                }
             }
         }
     }
