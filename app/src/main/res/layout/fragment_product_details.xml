@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -74,6 +75,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="16dp"
+        android:background="@color/transparent"
         android:elevation="2dp"
         android:layout_marginHorizontal="24dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,16 +128,25 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clMain"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="-20dp"
-        android:background="@drawable/product_details_main_bg"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@id/safeBottomGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivProduct">
+        app:layout_constraintTop_toBottomOf="@id/ivProduct"
+        android:layout_marginTop="-20dp"
+        >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/product_details_main_bg"
+        android:layout_marginBottom="60dp"
+
+        >
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvProduct"
@@ -263,14 +274,15 @@
             android:layout_marginTop="16dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             android:fontFamily="@font/rubik_medium"
-            android:layout_marginBottom="24dp"
             android:textColor="@color/gray"
+            android:layout_marginBottom="80dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDescriptionTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
