@@ -22,7 +22,7 @@ class BestSellersAdapter: RecyclerView.Adapter<BestSellersAdapter.BestSellersVie
                 Glide.with(root)
                     .load(item.image)
                     .placeholder(R.drawable.placeholder)
-                    .into(binding.ivImage)
+                    .into(ivImage)
             }
         }
     }
